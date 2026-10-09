@@ -991,6 +991,11 @@ public class SurveySystem extends javax.swing.JFrame {
         jButton27.setBackground(new java.awt.Color(204, 102, 255));
         jButton27.setForeground(new java.awt.Color(255, 255, 255));
         jButton27.setText("Tālāk");
+        jButton27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton27MouseClicked(evt);
+            }
+        });
         jButton27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton27ActionPerformed(evt);
@@ -1231,6 +1236,13 @@ public class SurveySystem extends javax.swing.JFrame {
         AptaujuIzveideNosaukums.setLocationRelativeTo(null);
         AptaujuIzveideNosaukums.setSize(450, 350);
     }//GEN-LAST:event_jButton22MouseClicked
+
+    private void jButton27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton27MouseClicked
+        AptaujuIzveideNosaukums.setVisible(false);
+        AptaujuIzveide.setVisible(true);
+        AptaujuIzveide.setLocationRelativeTo(null);
+        AptaujuIzveide.setSize(450, 350);
+    }//GEN-LAST:event_jButton27MouseClicked
 
     /**
      * @param args the command line arguments
