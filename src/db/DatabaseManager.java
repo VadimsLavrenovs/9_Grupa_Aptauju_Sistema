@@ -25,42 +25,45 @@ public class DatabaseManager {
             if (!user.next()) {
                 conn.createStatement().executeUpdate(
                         "CREATE TABLE user ("
-                        + "id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
+                        + "userid INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
                         + "username VARCHAR(50) NOT NULL UNIQUE, "
-                        + "password_hash VARCHAR(255) NOT NULL, "
-                        + "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"
+                        + "password VARCHAR(15) NOT NULL, "
+                        + "role VARCHAR(11) NOT NULL"
                 );
             }
             ResultSet survey = meta.getTables(null, null, "survey", null);
             if (!survey.next()) {
                 conn.createStatement().executeUpdate(
                         "CREATE TABLE survey ("
-                        + "id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
-                        + "title VARCHAR(100) NOT NULL, "
-                        + "description VARCHAR(255), "
+                        + "surveyid INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
+                        + "title VARCHAR(50) NOT NULL, "
                         + "user_id INT NOT NULL, "
-                        + "FOREIGN KEY (user_id) REFERENCES users(id))"
+                        + "FOREIGN KEY (user_id) REFERENCES user(userid))"
                 );
             }
             ResultSet question = meta.getTables(null, null, "question", null);
             if (!question.next()) {
                 conn.createStatement().executeUpdate(
-                        "CREATE TABLE users ("
-                        + "id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
-                        + "username VARCHAR(50) NOT NULL UNIQUE, "
-                        + "password_hash VARCHAR(255) NOT NULL, "
-                        + "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"
+                        "CREATE TABLE question ("
+                        + "questionid INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
+                        + "question VARCHAR(100) NOT NULL UNIQUE, "
+                        + "anwser_1 VARCHAR(50) NOT NULL, "
+                        + "anwser_2 VARCHAR(50) NOT NULL, "
+                        + "anwser_3 VARCHAR(50) NOT NULL, "
+                        + "survey_id INT NOT NULL, "
+                        + "FOREIGN KEY (survey_id) REFERENCES survey(surveyid))"
                 );
             }
             ResultSet respondent_question = meta.getTables(null, null, "respondent_question", null);
             if (!respondent_question.next()) {
                 conn.createStatement().executeUpdate(
-                        "CREATE TABLE hobbies ("
-                        + "id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
-                        + "title VARCHAR(100) NOT NULL, "
-                        + "description VARCHAR(255), "
+                        "CREATE TABLE respondent_question ("
+                        + "respondent_questionid INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, "
+                        + "anwser VARCHAR(50) NULL, "
                         + "user_id INT NOT NULL, "
-                        + "FOREIGN KEY (user_id) REFERENCES users(id))"
+                        + "FOREIGN KEY (user_id) REFERENCES user(userid))"
+                        + "question_id INT NOT NULL, "
+                        + "FOREIGN KEY (question_id) REFERENCES question(questionid))"
                 );
             }
         } catch (SQLException e) {
