@@ -95,6 +95,7 @@ public class SurveySystem extends javax.swing.JFrame {
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
         jTextField13 = new javax.swing.JTextField();
+        jButton28 = new javax.swing.JButton();
         ParolesMainisana = new javax.swing.JDialog();
         jButton16 = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
@@ -270,6 +271,12 @@ public class SurveySystem extends javax.swing.JFrame {
                             .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33))))
         );
+
+        AptaujuIzveide.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                AptaujuIzveideWindowClosing(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Jautājums Nr.");
@@ -470,6 +477,12 @@ public class SurveySystem extends javax.swing.JFrame {
                         .addGap(131, 131, 131))))
         );
 
+        RezultatuApkAtt.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                RezultatuApkAttWindowClosing(evt);
+            }
+        });
+
         jButton10.setBackground(new java.awt.Color(204, 102, 255));
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setText("Parādīt rezultātu");
@@ -550,6 +563,12 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
+        AptaujasRedigesana.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                AptaujasRedigesanaWindowClosing(evt);
+            }
+        });
+
         jButton13.setBackground(new java.awt.Color(204, 102, 255));
         jButton13.setForeground(new java.awt.Color(255, 255, 255));
         jButton13.setText("Saglabāt");
@@ -598,14 +617,19 @@ public class SurveySystem extends javax.swing.JFrame {
 
         jTextField13.setBackground(new java.awt.Color(204, 204, 204));
 
+        jButton28.setBackground(new java.awt.Color(204, 102, 255));
+        jButton28.setForeground(new java.awt.Color(255, 255, 255));
+        jButton28.setText("Iziet");
+        jButton28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton28MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout AptaujasRedigesanaLayout = new javax.swing.GroupLayout(AptaujasRedigesana.getContentPane());
         AptaujasRedigesana.getContentPane().setLayout(AptaujasRedigesanaLayout);
         AptaujasRedigesanaLayout.setHorizontalGroup(
             AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AptaujasRedigesanaLayout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(AptaujasRedigesanaLayout.createSequentialGroup()
                 .addGap(0, 23, Short.MAX_VALUE)
                 .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -642,6 +666,12 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton15)
                 .addGap(54, 54, 54))
+            .addGroup(AptaujasRedigesanaLayout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AptaujasRedigesanaLayout.setVerticalGroup(
             AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -659,7 +689,7 @@ public class SurveySystem extends javax.swing.JFrame {
                             .addComponent(jLabel27)
                             .addComponent(jLabel28)
                             .addComponent(jLabel29))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -675,10 +705,18 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
                     .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(18, 18, 18)
+                .addGroup(AptaujasRedigesanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
         );
+
+        ParolesMainisana.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                ParolesMainisanaWindowClosing(evt);
+            }
+        });
 
         jButton16.setBackground(new java.awt.Color(204, 102, 255));
         jButton16.setForeground(new java.awt.Color(255, 255, 255));
@@ -789,6 +827,12 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(55, 55, 55))
         );
 
+        NavigacijasLogsIntervetajs.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                NavigacijasLogsIntervetajsWindowClosing(evt);
+            }
+        });
+
         jButton20.setBackground(new java.awt.Color(204, 102, 255));
         jButton20.setForeground(new java.awt.Color(255, 255, 255));
         jButton20.setText("Mainīt paroli");
@@ -809,6 +853,11 @@ public class SurveySystem extends javax.swing.JFrame {
         jButton21.setBackground(new java.awt.Color(204, 102, 255));
         jButton21.setForeground(new java.awt.Color(255, 255, 255));
         jButton21.setText("Apskatīties rezultātus");
+        jButton21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton21MouseClicked(evt);
+            }
+        });
         jButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton21ActionPerformed(evt);
@@ -832,6 +881,11 @@ public class SurveySystem extends javax.swing.JFrame {
         jButton23.setBackground(new java.awt.Color(204, 102, 255));
         jButton23.setForeground(new java.awt.Color(255, 255, 255));
         jButton23.setText("Rediģēt aptauju");
+        jButton23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton23MouseClicked(evt);
+            }
+        });
         jButton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton23ActionPerformed(evt);
@@ -870,6 +924,12 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
+
+        LoginLogs.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                LoginLogsWindowClosing(evt);
+            }
+        });
 
         jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel34.setText("Lietotājvārds:");
@@ -925,6 +985,12 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
+        RezultatuIzveleLogs.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                RezultatuIzveleLogsWindowClosing(evt);
+            }
+        });
+
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -979,9 +1045,23 @@ public class SurveySystem extends javax.swing.JFrame {
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
+        AptaujuIzveideNosaukums.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                AptaujuIzveideNosaukumsWindowClosing(evt);
+            }
+        });
+
         jButton26.setBackground(new java.awt.Color(204, 102, 255));
         jButton26.setForeground(new java.awt.Color(255, 255, 255));
         jButton26.setText("Atpakaļ");
+        jButton26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton26MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton26MouseEntered(evt);
+            }
+        });
         jButton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton26ActionPerformed(evt);
@@ -1244,6 +1324,94 @@ public class SurveySystem extends javax.swing.JFrame {
         AptaujuIzveide.setSize(450, 350);
     }//GEN-LAST:event_jButton27MouseClicked
 
+    private void jButton26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseClicked
+        AptaujuIzveideNosaukums.setVisible(false);
+        NavigacijasLogsIntervetajs.setVisible(true);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
+        NavigacijasLogsIntervetajs.setSize(450, 350);
+    }//GEN-LAST:event_jButton26MouseClicked
+
+    private void AptaujuIzveideWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujuIzveideWindowClosing
+        AptaujuIzveide.setVisible(false);
+        NavigacijasLogsIntervetajs.setVisible(true);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
+        NavigacijasLogsIntervetajs.setSize(450, 350);
+    }//GEN-LAST:event_AptaujuIzveideWindowClosing
+
+    private void ParolesMainisanaWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_ParolesMainisanaWindowClosing
+        ParolesMainisana.setVisible(false);
+        NavigacijasLogsIntervetajs.setVisible(true);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
+        NavigacijasLogsIntervetajs.setSize(450, 350);
+    }//GEN-LAST:event_ParolesMainisanaWindowClosing
+
+    private void jButton21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseClicked
+        NavigacijasLogsIntervetajs.setVisible(false);
+        RezultatuIzveleLogs.setVisible(true);
+        RezultatuIzveleLogs.setLocationRelativeTo(null);
+        RezultatuIzveleLogs.setSize(450, 350);
+    }//GEN-LAST:event_jButton21MouseClicked
+
+    private void jButton23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton23MouseClicked
+        NavigacijasLogsIntervetajs.setVisible(false);
+        AptaujasRedigesana.setVisible(true);
+        AptaujasRedigesana.setLocationRelativeTo(null);
+        AptaujasRedigesana.setSize(450, 350);
+    }//GEN-LAST:event_jButton23MouseClicked
+
+    private void jButton28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton28MouseClicked
+        AptaujasRedigesana.setVisible(false);
+        NavigacijasLogsIntervetajs.setVisible(true);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
+        NavigacijasLogsIntervetajs.setSize(450, 350);
+    }//GEN-LAST:event_jButton28MouseClicked
+
+    private void RezultatuApkAttWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_RezultatuApkAttWindowClosing
+        RezultatuApkAtt.setVisible(false);
+        RezultatuIzveleLogs.setVisible(true);
+        RezultatuIzveleLogs.setLocationRelativeTo(null);
+        RezultatuIzveleLogs.setSize(450, 350);
+    }//GEN-LAST:event_RezultatuApkAttWindowClosing
+
+    private void AptaujasRedigesanaWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujasRedigesanaWindowClosing
+        AptaujasRedigesana.setVisible(false);
+        NavigacijasLogsIntervetajs.setVisible(true);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
+        NavigacijasLogsIntervetajs.setSize(450, 350);
+    }//GEN-LAST:event_AptaujasRedigesanaWindowClosing
+
+    private void RezultatuIzveleLogsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_RezultatuIzveleLogsWindowClosing
+        RezultatuIzveleLogs.setVisible(false);
+        NavigacijasLogsIntervetajs.setVisible(true);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
+        NavigacijasLogsIntervetajs.setSize(450, 350);
+    }//GEN-LAST:event_RezultatuIzveleLogsWindowClosing
+
+    private void NavigacijasLogsIntervetajsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_NavigacijasLogsIntervetajsWindowClosing
+        NavigacijasLogsIntervetajs.setVisible(false);
+        LoginLogs.setVisible(true);
+        LoginLogs.setLocationRelativeTo(null);
+        LoginLogs.setSize(450, 350);
+    }//GEN-LAST:event_NavigacijasLogsIntervetajsWindowClosing
+
+    private void LoginLogsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_LoginLogsWindowClosing
+        LoginLogs.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setSize(450, 350);
+    }//GEN-LAST:event_LoginLogsWindowClosing
+
+    private void AptaujuIzveideNosaukumsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AptaujuIzveideNosaukumsWindowClosing
+        AptaujuIzveideNosaukums.setVisible(false);
+        NavigacijasLogsIntervetajs.setVisible(true);
+        NavigacijasLogsIntervetajs.setLocationRelativeTo(null);
+        NavigacijasLogsIntervetajs.setSize(450, 350);
+    }//GEN-LAST:event_AptaujuIzveideNosaukumsWindowClosing
+
+    private void jButton26MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton26MouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -1312,6 +1480,7 @@ public class SurveySystem extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
